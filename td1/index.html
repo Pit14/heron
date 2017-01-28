@@ -5,11 +5,32 @@
     <title>Title</title>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.6.1/angular.min.js"></script>
     <script src="js/app.js"></script>
-    <script src="js/mainController.js"></script>
+    <script src="js/noteController.js"></script>
 
 </head>
-<body data-ng-controller="MainController as main">
-{{main.getMsg()}}
-{{2+7}}
+<body data-ng-controller="mainController as mainCtrl">
+Ex 1 : Note Application</br></br>
+<strong>Note : </strong></br>
+           name="messageNote" id="messageNote"
+           cols="40" rows="5" maxlength="100"
+           ng-change="mainCtrl.info='Note modifiée'">
+
+</textarea>
+<div>
+    Nombre de caractères restant : {{mainCtrl.count()}}
+</div>
+
+<button data-ng-click="mainCtrl.clear()">
+    Effacer
+</button>
+<button data-ng-click="mainCtrl.save()">
+    Enregistrer
+</button>
+<br>
+Status : {{mainCtrl.status}}
+<br>
+{{mainCtrl.info}}
 </body>
+
+
 </html>

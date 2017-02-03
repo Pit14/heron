@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <title>Title</title>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.6.1/angular.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.6.1/angular-cookies.min.js"></script>
     <script src="js/app.js"></script>
     <script src="js/noteController.js"></script>
 
@@ -43,7 +44,7 @@
                 Nombre de caractères restant : {{mainCtrl.count()}}
             </div>
 
-            <div class="alert alert-dismissible fade in" data-ng-class="mainCtrl.status" role="alert">
+            <div class="alert alert-dismissible fade in" data-ng-class="mainCtrl.status" role="alert" ng-hide="mainCtrl.info==''">
                 {{mainCtrl.info}}
             </div>
 

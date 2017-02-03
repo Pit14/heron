@@ -2,13 +2,16 @@
  * Created by Edgar on 27/01/2017.
  */
 
-angular.module("noteApp").controller("mainController",function () {
 
-    this.messageNote="";
+angular.module("noteApp").controller("mainController",["$cookies",function($cookies) {
+
+    this.messageNote=$cookies.get('note');
     this.info="";
     this.status="";
 
     this.save=function () {
+
+        $cookies.put('note', this.messageNote);
         this.info="Note sauvegardée";
     }
 
@@ -33,4 +36,4 @@ angular.module("noteApp").controller("mainController",function () {
         }
         return nb;
     }
-});
+}]);

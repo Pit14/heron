@@ -20,15 +20,15 @@ angular.module("noteApp").controller("mainController",function () {
     this.count=function(){
         var nb= 100-this.messageNote.length;
         if(nb>=50){
-            this.status="Ok";
+            this.status="alert-info";
             //this.info="Note modifié";
         }
         else if(nb<=10){
-            this.status="danger";
+            this.status="alert-danger";
             //this.info="Note modifié";
         }
         else{
-            this.status="warning";
+            this.status="alert-warning";
             //this.info="Note modifié";
         }
         return nb;

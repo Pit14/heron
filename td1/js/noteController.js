@@ -13,6 +13,7 @@ angular.module("noteApp").controller("mainController",["$cookies",function($cook
 
         $cookies.put('note', this.messageNote);
         this.info="Note sauvegardée";
+        this.status="alert-success";
     }
 
     this.clear=function(){
@@ -22,17 +23,24 @@ angular.module("noteApp").controller("mainController",["$cookies",function($cook
 
     this.count=function(){
         var nb= 100-this.messageNote.length;
-        if(nb>=50){
-            this.status="alert-info";
-            //this.info="Note modifié";
-        }
-        else if(nb<=10){
-            this.status="alert-danger";
-            //this.info="Note modifié";
-        }
-        else{
-            this.status="alert-warning";
-            //this.info="Note modifié";
+
+        if(this.info=="Note sauvegardée") {
+
+        }else{
+
+            if (nb >= 50) {
+                this.status = "alert-info";
+                //this.info="Note modifié";
+            }
+            else if (nb <= 10) {
+                this.status = "alert-danger";
+                //this.info="Note modifié";
+            }
+            else {
+                this.status = "alert-warning";
+                //this.info="Note modifié";
+            }
+
         }
         return nb;
     }

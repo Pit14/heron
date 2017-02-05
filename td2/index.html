@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="fr-fr" data-ng-app="ServicesApp">
+<head>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.6.1/angular.min.js"></script>
+    <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.6.1/angular-cookies.js"></script>
+    <script src="app.js"></script>
+    <script src="fr.js"></script>
+    <script src="servicesController.js"></script>
+    <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+
+    <meta charset="UTF-8">
+    <title>TD2</title>
+</head>
+<body data-ng-controller="ServicesController as servicesCtrl">
+
+    <h1>Services</h1>
+<div class = "alert alert-info">Choisissez les éléments à inclure :
+    <ng-pluralize count="servicesCtrl.servicesActifs"
+                  when="{'0': 'Pas de service selectionné',
+                   'one': '1 service selectionné',
+                   'other': '{} services selectionnés'}">
+    </ng-pluralize><br>
+</div>
+   <ul>
+       <li ng-repeat="serviceActuel in servicesCtrl.services" ng-click="servicesCtrl.toggleActive(serviceActuel)" >
+            {{serviceActuel.name}} <span class="ng-binding">{{serviceActuel.price|currency}}</span>
+        </li>
+    </ul>
+    Total :  <span data-ng-bind ="servicesCtrl.total()" >{{currency}}€</span>
+
+</body>
+</html>

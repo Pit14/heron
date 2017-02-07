@@ -1,7 +1,7 @@
 /**
  * Created by Edgar on 03/02/2017.
  */
-angular.module("ServicesApp").controller("ServicesController",function(){
+angular.module("ServicesApp").controller("ServicesController",["$http",function($http){
     this.services = [
         {
             "name": "Web Development",
@@ -21,6 +21,16 @@ angular.module("ServicesApp").controller("ServicesController",function(){
             "active":false
         }
     ];
+
+    this.selPromo = false;
+    this.codePromo="";
+    this.reduction=1.00;
+    var self=this;
+
+    $http.get("promo.json").then(function(response){
+        self.promos=response.data;
+        console.log(self.promos['B22']);
+    });
 
     this.servicesActifs = 1;
 
@@ -44,5 +54,15 @@ angular.module("ServicesApp").controller("ServicesController",function(){
         }
     };
 
+    this.verifierCode= function(){
+        console.log(JSON.stringify(self.promos));
+        if (this.codePromo.length>0 && self.promos[this.codePromo]){
+            this.reduction=1-self.promos[this.codePromo];
+        }
+        else{
+            this.reduction=1;
+        }
+    };
 
-});
+
+}]);

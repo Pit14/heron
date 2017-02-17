@@ -28,17 +28,13 @@ angular.module("contactApp").controller("contactController",function(){
     ];
     this.contact="Angular Boy";
     this.tmpContact;
-    this.operation;
-    this.edit;
+    this.operation="lol";
+    this.edit=false;
+
 
 
     this.toUpdate=function (contact) {
 
-    }
-
-    this.clear=function(){
-        this.messageNote="";
-        this.info="";
     }
 
     this.toAdd=function(){
@@ -46,6 +42,8 @@ angular.module("contactApp").controller("contactController",function(){
     }
 
     this.add=function(){
+        this.operation=$scope.prenom;
+       // this.contact.push()
 
     }
 
@@ -56,6 +54,15 @@ angular.module("contactApp").controller("contactController",function(){
 
 
     this.delete=function(contact){
+
+    }
+
+    this.setEdit=function(){
+        if(this.edit==false){
+            this.edit=true;
+        }
+        else
+            this.edit=false;
 
     }
 

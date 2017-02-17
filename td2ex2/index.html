@@ -7,22 +7,45 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.6.1/angular.min.js"></script>
     <script src="app.js"></script>
     <script src="contactController.js"></script>
+    <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+
 
 </head>
 <body data-ng-controller="contactController as ctrl">
-<h1>Contacts</h1>
+<div class="panel panel-primary">
+    <div class="panel panel-heading">
+Contacts
+    </div>
 {{ctrl.contact}}
 <br>
+    <div class="panel panel-body">
 <input type="text" placeholder="Filtrer..."/>
+    </div>
 
-<table>
+<table class="table table-stripped">
     <tr ng-repeat="con in ctrl.contacts" >
         <td>{{con.nom}}</td><td>{{con.prenom}}</td><td>{{con.adresse}}</td>
     </tr>
 </table>
 
+<br><br>
+
+<input type="submit" id="ajouter" value="Ajouter..." ng-click="ctrl.setEdit()" />
+<br><br>
+<span ng-show="ctrl.edit">
+    Ajouter un contact <br>
+    <form>
+        <input type="text" placeholder="Entrez un nom" id="nom" ng-model="nom"/>
+        <input type="text" placeholder="Prénom..." id="prenom" ng-model="prenom"/>
+        <input type="text" placeholder="Adresse email..." id="mail" ng-model="mail"/>
+
+        <input type="submit" id="valider" value="Valider" ng-click="ctrl.add()" />
+{{ctrl.operation}}
+        <input type="submit" id="annuler" value="Annuler" ng-click="ctrl.setEdit()" />
 
 
-
+    </form>
+</span>
+</div>
 </body>
 </html>

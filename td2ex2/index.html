@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en" data-ng-app="contactApp">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.6.1/angular.min.js"></script>
+    <script src="app.js"></script>
+    <script src="contactController.js"></script>
+
+</head>
+<body data-ng-controller="contactController as ctrl">
+<h1>Contacts</h1>
+{{ctrl.contact}}
+<br>
+<input type="text" placeholder="Filtrer..."/>
+
+<table>
+    <tr ng-repeat="con in ctrl.contacts" >
+        <td>{{con.nom}}</td><td>{{con.prenom}}</td><td>{{con.adresse}}</td>
+    </tr>
+</table>
+
+
+
+
+</body>
+</html>

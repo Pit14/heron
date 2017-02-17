@@ -46,3 +46,14 @@ Network Trash Folder
 Temporary Items
 .apdisk
 td1/.idea
+service/.idea/modules.xml
+service/.idea/service.iml
+service/.idea/workspace.xml
+service/app.js
+service/fr.js
+service/index.html
+service/servicesController.js
+*.xml
+td2/.idea/service.iml
+td2.rar
+*.iml

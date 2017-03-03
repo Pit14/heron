@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="fr-fr" data-ng-app="deviseApp">
+<head>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.6.1/angular.min.js"></script>
+    <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+    <script src="app.js"></script>
+    <script src="deviseController.js"></script>
+    <meta charset="UTF-8">
+    <title>TD2</title>
+</head>
+<body data-ng-controller="deviseController as deviseCtrl">
+
+<h1>Ex3 : Currency application </h1>
+<form class="form-group form-inline">
+    <input class="form-control" type="number" placeholder="1" data-ng-model="deviseCtrl.what"/>
+    <select data-ng-options="pays.code as (pays.code + ' - ' + pays.name) for (k,pays) in deviseCtrl.currencies" data-ng-model="deviseCtrl.from" class="form-control ng-pristine ng-valid ng-touched">
+    </select>
+    <a href="#" data-ng-click="deviseCtrl.swap()"> <-> </a>
+    <select  data-ng-options="pays.code as (pays.code + ' - ' + pays.name) for (k,pays) in deviseCtrl.currencies" data-ng-model="deviseCtrl.to" class="form-control ng-pristine ng-valid ng-touched">
+    </select>
+    <input type="button" value="Convertir" class="btn btn-primary" size="5" data-ng-click="deviseCtrl.getResult()">
+    <input type="text" class="form-control" data-ng-model="deviseCtrl.result" size="5" readonly="readonly">
+</form>
+
+</body>
+</html>
